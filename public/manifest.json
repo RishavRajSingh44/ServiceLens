@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "ServiceLens",
+  "version": "1.0.0",
+  "description": "Inspect and classify network requests by microservice in Chrome DevTools",
+
+  "devtools_page": "devtools.html",
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "permissions": ["storage"]
+}
