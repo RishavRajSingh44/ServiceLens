@@ -9,10 +9,12 @@ Thank you for your interest in contributing! This document explains how to set u
 - [Code of Conduct](#code-of-conduct)
 - [Getting Started](#getting-started)
 - [Development Workflow](#development-workflow)
+- [Testing Policy](#testing-policy)
 - [Testing Your Changes](#testing-your-changes)
 - [Submitting a Pull Request](#submitting-a-pull-request)
 - [Commit Conventions](#commit-conventions)
 - [Developer Certificate of Origin (DCO)](#developer-certificate-of-origin-dco)
+- [Collaborator Access Policy](#collaborator-access-policy)
 - [Reporting Bugs](#reporting-bugs)
 - [Requesting Features](#requesting-features)
 
@@ -81,6 +83,20 @@ npm run lint
 ```
 
 All PRs must pass lint with zero errors.
+
+---
+
+---
+
+## Testing Policy
+
+All major changes to the codebase **must** add or update tests in the automated test suite. Specifically:
+
+- **Any change to `src/lib/classifier.js`** must include a corresponding test in `tests/classifier.test.js`. PRs that modify classifier logic without tests will not be merged.
+- **New UI components or hooks** should include at minimum a smoke test verifying the component renders without errors.
+- **Bug fixes** should include a regression test that reproduces the bug before the fix and passes after.
+
+Tests are run automatically on every push and pull request via CI. See [docs/TESTING.md](docs/TESTING.md) for how to run them locally and what to test manually.
 
 ---
 
@@ -161,6 +177,19 @@ git commit --amend -s --no-edit
 ```
 
 PRs without a DCO sign-off on every commit will not be merged.
+
+---
+
+## Collaborator Access Policy
+
+Write and admin access to this repository is granted manually by the maintainer. The process is:
+
+1. A contributor demonstrates good-faith contributions via issues or pull requests
+2. The maintainer reviews the contributor's GitHub history and intent
+3. Access is granted at the minimum level needed (triage before write, write before maintain)
+4. GitHub defaults new outside collaborators to read-only — elevated permissions require explicit action
+
+If you are interested in becoming a regular contributor or maintainer, open an issue or reach out via GitHub.
 
 ---
 
