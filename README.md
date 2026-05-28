@@ -30,7 +30,7 @@ A Chrome DevTools extension that captures network requests in real time and auto
 1. Clone the repo and install dependencies:
 
    ```bash
-   git clone https://github.com/RishavRajSingh44/servicelens.git
+   git clone https://github.com/RishavRajSingh44/ServiceLens.git
    cd servicelens
    npm install
    ```
@@ -116,6 +116,7 @@ App.jsx              (classifies, filters, groups)
 npm run dev      # Vite dev server (UI preview at localhost:5173)
 npm run build    # Build extension to dist/
 npm run lint     # ESLint
+npm test         # Vitest unit tests (classifier logic)
 npm run preview  # Preview the built output
 ```
 
@@ -125,12 +126,23 @@ npm run preview  # Preview the built output
 
 ## Contributing
 
-Contributions are welcome. Please:
+Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide including dev setup, commit conventions, DCO sign-off, and PR rules.
 
-1. Fork the repo and create a feature branch
-2. Keep changes focused — one concern per PR
-3. Run `npm run lint` before submitting
-4. Open an issue first for significant changes or new features
+Quick checklist before submitting a PR:
+
+```bash
+npm run lint   # must pass with zero errors
+npm test       # 14 unit tests must pass
+npm run build  # must complete successfully
+```
+
+See [docs/TESTING.md](docs/TESTING.md) for the manual testing checklist.
+
+---
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a full history of releases and changes.
 
 ---
 
