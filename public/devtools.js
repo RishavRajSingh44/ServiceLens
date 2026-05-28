@@ -1,3 +1,4 @@
+/* global chrome */
 // devtools.js — runs in the DevTools page context.
 
 let port = null;
@@ -30,7 +31,7 @@ function connectToBackground() {
   while (pendingQueue.length > 0) {
     try {
       port.postMessage(pendingQueue.shift());
-    } catch (_e) {
+    } catch {
       break;
     }
   }
@@ -57,7 +58,7 @@ chrome.devtools.panels.create(
   'Network Inspector',
   '',
   'panel/index.html',
-  function (_panel) {}
+  () => {}
 );
 
 chrome.devtools.network.onRequestFinished.addListener(function (request) {

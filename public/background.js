@@ -1,3 +1,4 @@
+/* global chrome */
 // background.js — Manifest V3 service worker.
 // Relays messages from devtools.js → panel page via long-lived ports.
 // The devtools-panel port keeps this SW alive while DevTools is open.
@@ -24,7 +25,7 @@ chrome.runtime.onConnect.addListener(function (port) {
 
     // Flush buffered requests so the panel gets history immediately
     for (const msg of requestBuffer) {
-      try { port.postMessage(msg); } catch (_e) { break; }
+      try { port.postMessage(msg); } catch { break; }
     }
 
     port.onMessage.addListener((msg) => handlePanelMessage(msg));
@@ -44,7 +45,7 @@ function forwardToPanel(message) {
   panelPorts.forEach((p) => {
     try {
       p.postMessage(message);
-    } catch (_e) {
+    } catch {
       panelPorts.delete(p);
     }
   });
@@ -54,7 +55,7 @@ function handlePanelMessage(message) {
   if (message.type === 'CLEAR_REQUESTS') {
     requestBuffer.length = 0;
     panelPorts.forEach((p) => {
-      try { p.postMessage({ type: 'CLEAR_REQUESTS' }); } catch (_e) { panelPorts.delete(p); }
+      try { p.postMessage({ type: 'CLEAR_REQUESTS' }); } catch { panelPorts.delete(p); }
     });
   }
   if (message.type === 'CONFIG_UPDATE') {

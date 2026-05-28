@@ -1,11 +1,15 @@
+/* global chrome */
 import { useEffect, useRef, useCallback } from 'react';
 
 export function useRequests(onRequest, onClear) {
   const portRef = useRef(null);
   const onRequestRef = useRef(onRequest);
   const onClearRef = useRef(onClear);
-  onRequestRef.current = onRequest;
-  onClearRef.current = onClear;
+
+  useEffect(() => {
+    onRequestRef.current = onRequest;
+    onClearRef.current = onClear;
+  });
 
   useEffect(() => {
     if (typeof chrome === 'undefined' || !chrome.runtime) {
@@ -47,7 +51,7 @@ export function useRequests(onRequest, onClear) {
 
     return () => {
       if (portRef.current) {
-        try { portRef.current.disconnect(); } catch (_e) { /* ignore */ }
+        try { portRef.current.disconnect(); } catch { /* ignore */ }
         portRef.current = null;
       }
     };
@@ -57,9 +61,10 @@ export function useRequests(onRequest, onClear) {
     if (portRef.current) {
       try {
         portRef.current.postMessage({ type: 'CLEAR_REQUESTS' });
-      } catch (_e) { /* ignore */ }
+      } catch { /* ignore */ }
     }
   }, []);
 
   return { clearRequests };
 }
+

@@ -86,7 +86,7 @@ function stripResourceKey(seg) {
  * @param {Array<{type: string, pattern: string, service: string}>} serviceMap
  * @returns {string}
  */
-const STATIC_ASSET_NOISE = /^(\/@vite|\/\@react-refresh|\/\@fs|\/node_modules|\/src\/|\/assets\/|\/fonts\/|__vite_ping|__hmr|\/\_next\/static\/|\/\_next\/image|\/favicon\.|\/robots\.txt|\/sitemap\.xml|\/manifest\.json|\/sw\.js|\/workbox-)/;
+const STATIC_ASSET_NOISE = /^(\/@vite|\/@react-refresh|\/@fs|\/node_modules|\/src\/|\/assets\/|\/fonts\/|__vite_ping|__hmr|\/_next\/static\/|\/_next\/image|\/favicon\.|\/robots\.txt|\/sitemap\.xml|\/manifest\.json|\/sw\.js|\/workbox-)/;
 
 const CDN_NOISE_HOST = /^(fonts\.googleapis\.com|fonts\.gstatic\.com|cdn\.jsdelivr\.net|unpkg\.com|cdnjs\.cloudflare\.com|use\.typekit\.net|kit\.fontawesome\.com)$/;
 
@@ -103,7 +103,7 @@ export function classifyRequest(url, serviceMap = []) {
   let parsed;
   try {
     parsed = new URL(url);
-  } catch (_e) {
+  } catch {
     return 'unknown';
   }
 

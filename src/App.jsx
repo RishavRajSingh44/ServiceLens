@@ -1,3 +1,4 @@
+/* global chrome */
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { classifyRequest, colorForService } from './lib/classifier.js';
 import { useRequests } from './hooks/useRequests.js';

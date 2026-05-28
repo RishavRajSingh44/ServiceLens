@@ -24,13 +24,13 @@ function shortUrl(url) {
   try {
     const u = new URL(url);
     return u.pathname + (u.search ? u.search.slice(0, 30) + (u.search.length > 30 ? '…' : '') : '');
-  } catch (_e) {
+  } catch {
     return url.length > 80 ? url.slice(0, 80) + '…' : url;
   }
 }
 
 export default function RequestRow({ request, slowThreshold }) {
-  const { method, url, status, statusText, time } = request;
+  const { method, url, status, time } = request;
 
   return (
     <tr>
