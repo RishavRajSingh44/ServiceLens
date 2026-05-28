@@ -6,7 +6,9 @@ A Chrome DevTools extension that captures network requests in real time and auto
 ![Manifest](https://img.shields.io/badge/manifest-v3-green)
 ![React](https://img.shields.io/badge/react-19-61dafb)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/RishavRajSingh44/ServiceLens/badge)](https://securityscorecards.dev/viewer/?uri=github.com/RishavRajSingh44/ServiceLens)
-[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/13013/badge)](https://www.bestpractices.dev/projects/13013)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/13015/badge)](https://www.bestpractices.dev/projects/13015)
+
+> We gladly provide the information in several locales, however, if there is any conflict or inconsistency between the translations, the English version is the authoritative version.
 
 ---
 
