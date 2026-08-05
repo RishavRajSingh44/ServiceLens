@@ -33,7 +33,7 @@ export default function RequestRow({ request, slowThreshold }) {
   const { method, url, status, time } = request;
 
   return (
-    <tr>
+    <tr className={timeClass(time, slowThreshold)}>
       <td>
         <span className={`method ${methodClass(method)}`}>{method}</span>
       </td>
@@ -46,9 +46,7 @@ export default function RequestRow({ request, slowThreshold }) {
         </span>
       </td>
       <td>
-        <span className={timeClass(time, slowThreshold)}>
-          {time}ms
-        </span>
+        {time}ms
       </td>
     </tr>
   );

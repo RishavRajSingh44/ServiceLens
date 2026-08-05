@@ -206,6 +206,10 @@ html, body, #root { height: 100%; }
 .time-slow   { color: var(--slow); font-weight: 600; }
 .time-very-slow { color: var(--very-slow); font-weight: 700; }
 
+/* ===== Slow Row Highlight ===== */
+.request-table tr.time-slow td { background: rgba(224, 175, 104, 0.08); }
+.request-table tr.time-very-slow td { background: rgba(247, 118, 142, 0.10); }
+
 /* ===== Config Editor Modal ===== */
 .modal-overlay {
   position: fixed;
