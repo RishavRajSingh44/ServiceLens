@@ -324,3 +324,11 @@ html, body, #root { height: 100%; }
   font-weight: 600;
 }
 .btn-primary:hover { opacity: 0.88; }
+
+/* Row-level slow highlights (issue #16) */
+tr.time-slow {
+  background: rgba(245, 158, 11, 0.12);
+}
+tr.time-very-slow {
+  background: rgba(239, 68, 68, 0.14);
+}
