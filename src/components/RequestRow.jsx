@@ -32,8 +32,9 @@ function shortUrl(url) {
 export default function RequestRow({ request, slowThreshold }) {
   const { method, url, status, time } = request;
 
+  const rowClass = timeClass(time, slowThreshold);
   return (
-    <tr>
+    <tr className={rowClass || undefined}>
       <td>
         <span className={`method ${methodClass(method)}`}>{method}</span>
       </td>
